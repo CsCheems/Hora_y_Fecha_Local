@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Oswald:wght@200..700&family=Press+Start+2P&display=swap');
+
+#timer{
+    font-family: "Oswald", sans-serif;
+    font-size: 40px;
+    color: white;
+}

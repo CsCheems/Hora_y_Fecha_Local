@@ -1,15 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Oswald:wght@200..700&family=Press+Start+2P&display=swap');
 
-#timer{
-    font-family: "Oswald", sans-serif;
-    font-weight: 700;
-    font-size: 80px;
-    color: white;
+#main-container{
+    display: flex;
 }
 
-#dater{
-    font-family: "Oswald", sans-serif;
-    font-weight: 200;
-    font-size: 45px;
-    color: white;
-}

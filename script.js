@@ -5,8 +5,8 @@ const urlParameters = new URLSearchParams(querystring);
 const fuenteLetra = urlParameters.get("fuenteLetra") || "Oswald";
 const colorFuente = urlParameters.get("color") || "#ffffff";
 const tamanoFuente = parseInt(urlParameters.get("tamanoFuente")) || 80;
-const visualizacion = parseInt(urlParameters.get("visualizacion")) || 2;
-const posicionamiento = parseInt(urlParameters.get("posicionamiento")) ||0;
+const visualizacion = parseInt(urlParameters.get("visualizacion")) || 0;
+const posicionamiento = parseInt(urlParameters.get("posicionamiento")) || 0;
 const formato = obtenerBooleanos("formato", true);
 const sombra = obtenerBooleanos("sombra", true);
 const mostrarRelojFecha = parseInt(urlParameters.get("fechaHora")) || 0;
@@ -35,21 +35,7 @@ function getTime() {
     main.style.justifyContent = "";
     main.style.alignItems = "";
 
-    // Posicionamiento vertical
-    switch (posicionamiento) {
-        case 0:
-            main.style.alignItems = "flex-start";
-            break;
-        case 1:
-            main.style.alignItems = "center";
-            main.style.justifyContent = "center";
-            break;
-        case 2:
-            main.style.alignItems = "flex-end";
-            break;
-        default:
-            console.warn("Valor de 'posicionamiento' no válido");
-    }
+   
 
     // Obtén o crea los divs
     let dateDiv = document.getElementById("dater");
@@ -82,6 +68,22 @@ function getTime() {
             break;
         default:
             console.warn("Valor de 'visualizacion' no válido");
+    }
+
+     // Posicionamiento vertical
+    switch (posicionamiento) {
+        case 0:
+            main.style.alignItems = "flex-start";
+            break;
+        case 1:
+            main.style.alignItems = "center";
+            main.style.justifyContent = "center";
+            break;
+        case 2:
+            main.style.alignItems = "flex-end";
+            break;
+        default:
+            console.warn("Valor de 'posicionamiento' no válido");
     }
 
     timerDiv.style.display = "block";

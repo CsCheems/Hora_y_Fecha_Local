@@ -7,9 +7,9 @@ const colorFuente = urlParameters.get("color") || "#ffffff";
 const tamanoFuente = parseInt(urlParameters.get("tamanoFuente")) || 80;
 const visualizacion = parseInt(urlParameters.get("visualizacion")) || 2;
 const posicionamiento = parseInt(urlParameters.get("posicionamiento")) ||0;
-const formato = parseInt(urlParameters.get("formato")) || 1;
-const sombra = parseInt(urlParameters.get("sombra")) || 1;
-const mostrarRelojFecha = parseInt(urlParameters.get("relojFecha")) || 0;
+const formato = obtenerBooleanos("formato", true);
+const sombra = obtenerBooleanos("sombra", true);
+const mostrarRelojFecha = obtenerBooleanos("relojFecha", true);
 
 function setTime() {
     getTime(); // Llama inmediatamente una vez
@@ -119,4 +119,24 @@ function getTime() {
     // Asignar contenido
     timerDiv.innerHTML = formattedTime;
     dateDiv.innerHTML = formattedDate;
+}
+
+function obtenerBooleanos(parametro, valor){
+    const urlParams = new URLSearchParams(window.location.search);
+
+    console.log(urlParams);
+
+    const valorParametro = urlParams.get(parametro);
+
+    if(valorParametro === null){
+        return valor;
+    }
+
+    if(valorParametro === 'true'){
+        return true;
+    }else if(valorParametro === 'false'){
+        return false;
+    }else{
+        return valor;
+    }
 }

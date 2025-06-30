@@ -9,7 +9,8 @@ const visualizacion = parseInt(urlParameters.get("visualizacion")) || 2;
 const posicionamiento = parseInt(urlParameters.get("posicionamiento")) ||0;
 const formato = obtenerBooleanos("formato", true);
 const sombra = obtenerBooleanos("sombra", true);
-const mostrarRelojFecha = obtenerBooleanos("relojFecha", true);
+const mostrarRelojFecha = parseInt(urlParameters.get("fechaHora")) || 0;
+
 
 function setTime() {
     getTime(); // Llama inmediatamente una vez
